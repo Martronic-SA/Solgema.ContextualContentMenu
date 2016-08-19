@@ -20,21 +20,28 @@
         padding-left:0;
         z-index:10000;
         background-color:white;
-        -moz-box-shadow:0 0 5px #AAAAAA;
-        -webkit-box-shadow:0 0 5px #AAAAAA;
-        box-shadow:0 0 5px #AAAAAA;
-        -moz-border-radius:5px;
-        -webkit-border-radius:5px;
-        border-radius: 5px;
-        border:1px solid #AAAAAA;
+        -moz-box-shadow:none;
+        -webkit-box-shadow:none;
+        box-shadow:none;
+        -moz-border-radius:0;
+        -webkit-border-radius:0;
+        border-radius: 0;
+        border:none;
+        overflow:visible;
+        margin-bottom:0;
     }
-    .plone-toolbar-main>li {
+    .plone-toolbar-main > li {
         position:relative;
     }
-    .plone-toolbar-main>li>ul {
+    .plone-toolbar-main > li > ul {
         position:absolute;
         top:0;
         left:100%;
+        background-color:white;
+        padding:10px;
+        border: 1px solid #aaaaaa;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #aaaaaa
     }
     .plone-toolbar-submenu-header {
         display:none;
