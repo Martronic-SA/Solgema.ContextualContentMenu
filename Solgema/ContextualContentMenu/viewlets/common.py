@@ -14,13 +14,15 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFPlone.utils import getFSVersionTuple
 
 from plone.app.layout.globals.interfaces import IViewView
 
 from zope.publisher.browser import BrowserPage
 
 class ContentActionsViewlet(BrowserPage):
-    template = ViewPageTemplateFile('contentactions.pt')
+    v5template = ViewPageTemplateFile('contentactions.pt')
+    v4template = ViewPageTemplateFile('contentactions_old.pt')
 
     def object_actions(self):
         context = aq_inner(self.context)
@@ -38,4 +40,6 @@ class ContentActionsViewlet(BrowserPage):
     
     def __call__(self):
         self.update()
-        return self.template()
+        if getFSVersionTuple()[0] == 4:
+            return self.v4template()
+        return self.v5template()

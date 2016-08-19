@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<registry>
+  
+  <records prefix="plone.resources/solgema-contextualcontentmenu"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">portal_skins/solgema_contextualcontentmenu.js</value>
+    <value key="css">
+      <element>++resource++Solgema.ContextualContentMenu/solgema_contextualcontentmenu.less</element>
+    </value>
+  </records>
+  
+  <records prefix="plone.bundles/plone-logged-in"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="resources" purge="false">
+      <element>solgema-contextualcontentmenu</element>
+    </value>
+    <value key="enabled">True</value>
+    <value key="last_compilation"></value>
+  </records>
+  
+</registry>

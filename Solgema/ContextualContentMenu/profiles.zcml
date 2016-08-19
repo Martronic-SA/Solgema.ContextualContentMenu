@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plone">
     
   <genericsetup:registerProfile
@@ -8,6 +9,30 @@
     title="Solgema ContextualContentMenu"
     directory="profiles/default"
     description='Adds a javascript Contextual Content Menu '
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+    
+  <genericsetup:registerProfile
+    name="plone4"
+    title="Solgema ContextualContentMenu (Plone 4)"
+    directory="profiles/plone4"
+    description='Adds a javascript Contextual Content Menu '
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+    
+  <genericsetup:registerProfile
+    name="plone5"
+    title="Solgema ContextualContentMenu (Plone 5)"
+    directory="profiles/plone5"
+    description='Adds a javascript Contextual Content Menu '
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+    
+  <genericsetup:registerProfile
+    name="uninstallplone4"
+    title="Solgema ContextualContentMenu (Plone 4)"
+    directory="profiles/uninstallplone4"
+    description='Uninstall Solgema ContextualContentMenu Plone 4 stuff.'
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
@@ -18,5 +43,9 @@
       description="Uninstall Solgema ContextualContentMenu Product."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+  <subscriber
+      zcml:condition="installed Products.GenericSetup.events"
+      handler=".setuphandlers.handleProfileImportedEvent" />
 
 </configure>

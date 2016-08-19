@@ -1,0 +1,15 @@
+<nav id="contextualContentMenu" role="navigation"
+      tal:define="plone_view context/@@plone;
+                  view nocall:view | nocall: plone_view;">
+  <ul class="plone-toolbar-main">
+    <div tal:replace="structure context/@@SCCMcontentactions | nothing" />
+    <div tal:replace="structure provider:plone.contentmenu" />
+  </ul>
+</nav>
+<script type="text/javascript">
+    $('#contextualContentMenu .plone-toolbar-main>li>ul').hide();
+    $('#contextualContentMenu li>a').click(function(event){
+        event.preventDefault();
+        $(this).parent().find('ul').toggle();
+    });
+</script>
